@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <script language="javascript" type="text/javascript"
+        src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+    <script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
+
+    <style>
+        .error {
+            color: red;
+            font-style: italic;
+        }
+        @media (max-width:767px){
+          .img-fluid{
+            width: 0;
+            height: 0;
+          }
+        }
+    </style>
+
+    <title>Hotel</title>
+  </head>
+  <body style="background-color: #b7b7a4;">
+    <section>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #a5a58d;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="Presentacion.html">Inicio<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="Paquetes.html">Paquetes</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="Registro.html">Registro</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    </section>
+    <section>
+        <div class="jumbotron jumbotron-fluid" style="background-color: #ffe8d6;">
+            <div class="container">
+              <h1 class="display-4">Formulario de Registro</h1>
+              <p class="lead">Debe registrarse para poder realizar reservas.</p>
+            </div>
+          </div>
+    </section>
+    <section class="container">
+        <form id="Formulario">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Cantidad de personas</label>
+                <input type="text" class="form-control" id="inputCant" name="cantidad">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Nombre y Apellido</label>
+                <input type="text" class="form-control" id="inputNombre" name="nombre">
+              </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>Email</label>
+                    <input type="email" class="form-control" id="inputEmail" name="email">
+                  </div>
+                <div class="form-group col-md-4">
+                    <label>Número de contacto</label>
+                    <input type="text" class="form-control" id="inputNumero" name="numero">
+                  </div>
+                  <div class="col-md-4">
+                    <img class="img-fluid" src="hotel.svg" alt="" style="position: absolute;">
+                  </div>
+                
+            </div>
+            <div class="form-group row">
+              <div class="form-group col-md-4">
+                <label>Fecha de ingreso</label>
+                <input type="date" class="form-control" id="inputFecha" name="fecha">
+              </div>
+              <div class="form-group col-md-3">
+                <label >Paquete</label>
+                <select id="opciones" class="form-control" name="paquete">
+                  <option disabled>Seleccione un paquete...</option>
+                  <option>Habitación simple (1 sola cama)</option>
+                  <option>Matrimonial (Cama doble)</option>
+                  <option>Familiar (4 camas)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6">
+                <div>
+                  <label>Medio de pago deseado</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="customRadioInline1" name="radios" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadioInline1">Transferencia</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="customRadioInline2" name="radios" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadioInline2">Mercado Pago</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="customRadioInline3" name="radios" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadioInline3">Voucher</label>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn" id="btn1" style="background-color: #ffe8d6; color: black; margin-top: 3%;">Registrar</button>
+          </form>
+    </section>
+    <section style="background-color: #cb997e; margin-top: 5%;">
+      <footer class="page-footer font-small blue pt-4">
+        <div class="container text-center text-md-left">
+          <div class="row">
+            <div class="col-md-6 mt-md-0 mt-3">
+              <h5 class="text-uppercase">Información</h5>
+              <p>Página para el hotel "Los Viajeros" con paquetes y formulario de registro.</p>
+            </div>
+          </div>
+      </footer>
+    </section>
+
+      <script>
+        $(function () {
+            $("#Formulario").validate({
+                rules: {
+                    nombre: {
+                        required: true,
+                        minlength: 5
+                    },
+                    cantidad: {
+                        required: true,
+                        number:true
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    numero: {
+                        required:true,
+                        number:true
+                    },
+                    radios: {
+                        required:true,
+                    },
+                    paquete: {
+                        required:true,
+                    },
+                    fecha: {
+                        required:true,
+                    }
+                },
+                messages: {
+                    nombre: {
+                        required: "Ingrese Nombre y Apellido",
+                        minlength: "Ingrese un minimo de 5 letras"
+                    },
+                    cantidad: {
+                        required: "Ingrese Cantidad",
+                        number:"Ingrese un numero"
+                    },
+                    email: {
+                        required: "Ingrese Email",
+                        email: "Ingrese un email valido"
+                    },
+                    numero: {
+                        required:"Ingrese Numero",
+                        number:"Ingrese un numero valido"
+                    },
+                    radios: {
+                        required:"Seleccione medio de pago"
+                    },
+                    paquete: {
+                        required:"Seleccione un paquete"
+                    },
+                    fecha: {
+                        required:"Seleccione fecha de ingreeso",
+                    }
+                },
+                errorPlacement: function(error, element){
+                    if (element.attr("name") == "radios") error.insertAfter("#br");
+                    else error.insertAfter(element);
+                },
+                submitHandler: function (form) {
+                    form.submit();
+                }
+            });
+        });
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                let validado = $('#Formulario').valid();
+                if (validado) {
+                    swal({
+                        title: "Sigue así!",
+                        text: "Los datos se validaron con éxito!",
+                        icon: "success",
+                        button: "Ok"
+                    });
+                    $('#Formulario')[0].reset();
+                    $("#opciones").val('0')
+                }
+                else {
+                    swal({
+                        title: "Error de Validación",
+                        text: "Completar los campos",
+                        icon: "error",
+                        button: "Ok",
+                    });
+                }
+            })
+        });
+    </script>
+    <script>
+      $(function(){
+        $("#opciones").val('0')
+    });
+    </script>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    <script language="javascript" type="text/javascript"
+    src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+
+  </body>
+</html>
